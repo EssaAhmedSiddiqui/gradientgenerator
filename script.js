@@ -1,17 +1,16 @@
-let css = document.querySelector("h3");
-let color1 = document.querySelector(".color1");
-let color2 = document.querySelector(".color2");
+const css = document.querySelector("h3");
+const [color1, color2] = document.querySelectorAll(".color");
+
 let body = document.getElementById("gradient");
 
 let setGradient = () => {
-	body.style.background = 
-	"linear-gradient(to right, " 
-	+ color1.value 
-	+ ", " 
-	+ color2.value 
-	+ ")";
+ 	body.style.background = linearGradient();
+	css.textContent = `${body.style.background};`;
+	
+}
 
-	css.textContent = body.style.background + ";";
+const linearGradient = () => {
+	return `linear-gradient(to right, ${color1.value}, ${color2.value})`;
 }
 
 color1.addEventListener("input", setGradient);
